@@ -1,3 +1,23 @@
 {
-  "hi": "Привет"
+  "login": {
+    "enter_your_phone_number_with_code": "Введите номер телефона с кодом",
+    "we_will_send_otp": "Мы отправим на него 4-х значный SMS \nкод",
+    "we_sent_sms": "Мы отправили SMS на ваш номер",
+    "enter_otp": "Введите 4-х значный код из сообщения"
+  },
+  "services": {
+    "welcome_message": "Добро пожаловать в Panorama BOT!",
+    "watch_video": "Посмотри приветственный ролик или \nвыберите нужную вам категорию",
+    "car_wash": "Автомойка",
+    "contact": "Контакты",
+    "about_us": "О нас"
+  },
+  "car_wash": {
+    "my_cars": "Мои автомобили",
+    "choose_car_to_wash": "Выберите авто для мойки"
+  },
+  "common": {
+    "back": "Назад",
+    "filter": "Фильтр"
+  }
 }

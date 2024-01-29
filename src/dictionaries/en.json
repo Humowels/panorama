@@ -1,3 +1,15 @@
 {
-  "hi": "Hello"
+  "login": {
+    "enter_your_phone_number_with_code": "Enter your phone number",
+    "we_will_send_otp": "We will send 4 digits via SMS",
+    "we_sent_sms": "We sent SMS to your number",
+    "enter_otp": "Enter 4 digits code from message"
+  },
+  "services": {
+    "welcome_message": "Welcome to Panorama BOT!",
+    "watch_video": "Watch the welcome video or select the category you need",
+    "car_wash": "Carwash",
+    "contact": "Contact",
+    "about_us": "About Us"
+  }
 }

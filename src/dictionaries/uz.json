@@ -1,3 +1,22 @@
 {
-  "hi": "Salom"
+  "login": {
+    "enter_your_phone_number_with_code": "Telefon raqamingizni kiriting",
+    "we_will_send_otp": "Biz SMS orqali 4 xonali kod yuboramiz",
+    "we_sent_sms": "Sizning raqamingizga SMS yubordik",
+    "enter_otp": "SMS orqali kelgan 4 xonali sonni kiriting"
+  },
+  "services": {
+    "welcome_message": "Panorama BOT ga xush kelibsiz",
+    "watch_video": "Xush kelibsiz videoni tomosha qiling yoki kerakli toifani tanlang",
+    "car_wash": "Moshina yuvish",
+    "contact": "Bog'lanish",
+    "about_us": "Biz haqimizda"
+  },
+  "car_wash": {
+    "my_cars": "Mening moshinalarim",
+    "choose_car_to_wash": "Yuvish uchun moshina tanlang"
+  },
+  "common": {
+    "back": "Ortga"
+  }
 }

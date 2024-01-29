@@ -1,6 +1,6 @@
 "use client";
 
-import { getTranslator, ValidLocale } from "@/i18n";
+import { getTranslator, locales, ValidLocale } from "@/i18n";
 import { useParams } from "next/navigation";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
@@ -13,6 +13,7 @@ interface IContext {
         }
       | undefined,
   ) => any;
+  lang: string | string[];
 }
 
 interface IProps {
@@ -38,20 +39,16 @@ function useDelayedRender<T>(asyncFun: () => Promise<T>, deps = []) {
   return output === undefined ? null : output;
 }
 
-export const LocaleContextProvider = ({
-  children,
-}: React.PropsWithChildren<IProps>) => {
+export const LocaleContextProvider = ({ children }: React.PropsWithChildren<IProps>) => {
   const params = useParams();
-
   return useDelayedRender(async () => {
     const t = await getTranslator(
       `${params.lang}` as ValidLocale, // our middleware ensures this is valid
     );
     const value = {
       t,
+      lang: params.lang,
     };
-    return (
-      <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>
-    );
+    return <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>;
   });
 };
