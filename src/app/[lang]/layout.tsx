@@ -11,7 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="bg-gray-50">
-        <div className="max-w-sm w-full mx-auto bg-white min-h-screen">
+        <div className="max-w-sm w-full mx-auto bg-white min-h-screen relative">
           <LocaleContextProvider>{children}</LocaleContextProvider>
         </div>
       </body>

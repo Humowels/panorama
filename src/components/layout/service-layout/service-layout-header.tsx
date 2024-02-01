@@ -6,7 +6,7 @@ export const ServiceLayoutHeader = () => {
       <p className="text-white">PANORAMA</p>
       <div className="flex items-center gap-8">
         <div className="w-9 h-9 rounded-full bg-red-500"></div>
-        <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center cursor-pointer">
+        <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center cursor-pointer z-10">
           <ShoppingBagIcon className="w-5" />
         </div>
       </div>
