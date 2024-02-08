@@ -22,7 +22,14 @@
     "order_success_layer_message": "Заказали мойку, еду в кафе и \nподстриглись? Все заказы будут \nобъединены в один счет.",
     "close_in_seconds": "Закроем автоматически через {{ second }} ceкунд...",
     "all_orders_combined": "Все заказы объединены в один счет",
-    "edit_order": "Изменить заказ"
+    "edit_order": "Изменить заказ",
+    "statuses": {
+      "accepted": "Принято",
+      "in_process": "В процессе",
+      "preparation": "Подготовка",
+      "ready": "Готово"
+    },
+    "pay_all": "Оплатить всё"
   },
   "car_wash": {
     "my_cars": "Мои автомобили",
@@ -31,6 +38,7 @@
   "common": {
     "back": "Назад",
     "filter": "Фильтр",
-    "back_to_homepage": "Перейти на главную"
+    "back_to_homepage": "Перейти на главную",
+    "currency": "сум"
   }
 }

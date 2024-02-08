@@ -1,6 +1,7 @@
 import { useLocaleContext } from "@/context/locale.context";
 import { CarNumberPlatte } from "@/components/car-wash/car-number-platte";
 import { PencilIcon } from "@heroicons/react/solid";
+import { OrderStatusProgress } from "@/components/orders/order-status/order-status-progress";
 
 export type TOrderVariants = "car_wash" | "cafe";
 export type TOrderStatuses = "new" | "process" | "preparation" | "ready";
@@ -40,7 +41,9 @@ export const OrderStatus = ({ status, variant, carNumber, price }: IProps) => {
         </p>
         <p className="font-bold">{price} sum</p>
       </div>
-      <div></div>
+      <div>
+        <OrderStatusProgress status={status} />
+      </div>
     </div>
   );
 };
