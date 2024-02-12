@@ -4,9 +4,13 @@ import { useLocaleContext } from "@/context/locale.context";
 import { NavLink } from "@/components/ui/navlink";
 
 export const ServiceLayoutNavbar = () => {
-  const { t } = useLocaleContext();
+  const { t, lang } = useLocaleContext();
   const renderServices = services.map((service, index) => (
-    <NavLink href={service.href} key={index} className="text-xs">
+    <NavLink
+      href={`/${lang + service.href}`}
+      key={index}
+      className="text-xs text-center flex items-center justify-center h-12"
+    >
       {t(service.name)}
     </NavLink>
   ));

@@ -19,6 +19,8 @@ export default function Services() {
       ></iframe>
       <div className="mt-6 flex flex-col space-y-2">
         <ServiceCard isService title={t("services.car_wash")} link="service/car-wash" />
+        <ServiceCard isService title={`${t("services.cafe")} Ayva`} link="service/cafe" />
+
         <ServiceCard title={t("services.contact")} link="contact" />
         <ServiceCard title={t("services.about_us")} link="about_us" />
       </div>

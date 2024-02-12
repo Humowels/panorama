@@ -9,6 +9,7 @@
     "welcome_message": "Добро пожаловать в Panorama BOT!",
     "watch_video": "Посмотри приветственный ролик или \nвыберите нужную вам категорию",
     "car_wash": "Автомойка",
+    "cafe": "Кафе",
     "contact": "Контакты",
     "about_us": "О нас",
     "choose_wash_type": "Выберите тип мойки",
@@ -34,6 +35,10 @@
   "car_wash": {
     "my_cars": "Мои автомобили",
     "choose_car_to_wash": "Выберите авто для мойки"
+  },
+  "cafe": {
+    "available_delivery_and_order": "Доступна доставка и заказ за столом",
+    "starting_price": "от {{ price }} сум"
   },
   "common": {
     "back": "Назад",
