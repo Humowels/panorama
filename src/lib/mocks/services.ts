@@ -9,12 +9,4 @@ export const services: IService[] = [
     href: "/service/cafe",
     name: "services.cafe",
   },
-  {
-    href: "/service/barbershop",
-    name: "services.car_wash",
-  },
-  {
-    href: "/service/shopping",
-    name: "services.car_wash",
-  },
 ];

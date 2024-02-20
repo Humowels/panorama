@@ -26,12 +26,12 @@ export const productMock: IProduct[] = [
     productName: "Американо",
     variants: [
       {
-        variantId: 1,
+        variantId: 3,
         variantName: "Одинарный",
         variantPrice: 15000,
       },
       {
-        variantId: 2,
+        variantId: 4,
         variantName: "Двойной",
         variantPrice: 18000,
       },
@@ -44,12 +44,12 @@ export const productMock: IProduct[] = [
     productName: "Американо",
     variants: [
       {
-        variantId: 1,
+        variantId: 5,
         variantName: "Одинарный",
         variantPrice: 15000,
       },
       {
-        variantId: 2,
+        variantId: 6,
         variantName: "Двойной",
         variantPrice: 18000,
       },

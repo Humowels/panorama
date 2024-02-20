@@ -38,7 +38,16 @@
   },
   "cafe": {
     "available_delivery_and_order": "Доступна доставка и заказ за столом",
-    "starting_price": "от {{ price }} сум"
+    "starting_price": "от {{ price }} сум",
+    "buy": "Купить",
+    "checkout": "Оформить",
+    "add": "Добавить",
+    "continue": "Продолжить",
+    "where_to_delivery": "Куда отправить?",
+    "choose_payment": "Укажите метод оплаты",
+    "waiting_for_payment": "Ожидание оплаты",
+    "waiting_for_payment_desc": "Мы выслали вам счет на указанную вами платежную систему.",
+    "cancel_order": "Отменить заказ"
   },
   "common": {
     "back": "Назад",

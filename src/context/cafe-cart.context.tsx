@@ -4,6 +4,7 @@ import { createContext, ReactNode, useContext, useMemo } from "react";
 import { useLocalStorage } from "react-use";
 import { IProductVariant } from "@/lib/interfaces/product.interface";
 import { ICafeCart, ICafeCartItem } from "@/lib/interfaces/cart.interface";
+import { CheckoutButton } from "@/components/cafe/checkout-button";
 
 interface ICafeCartContext {
   addItem: (variant: IProductVariant) => void;
@@ -12,6 +13,7 @@ interface ICafeCartContext {
   removeItem: (variant: IProductVariant) => void;
   clearCart: () => void;
   cafeCart?: ICafeCart;
+  getItem: (variantId: number) => ICafeCartItem | undefined;
 }
 
 const CafeCartContext = createContext<ICafeCartContext | null>(null);
@@ -35,8 +37,13 @@ const cartInitialState: ICafeCart = {
 
 export const CafeCartContextProvider = ({ children }: IProps) => {
   const [cafeCart, setCafeCart] = useLocalStorage<ICafeCart>("cafe-cart", cartInitialState);
-
+  console.log(cafeCart);
   const addItem = (variant: IProductVariant) => {
+    const hasItem = Boolean(getItem(variant.variantId));
+
+    if (hasItem) {
+      return incrementItem(variant);
+    }
     if (cafeCart) {
       setCafeCart({
         ...cafeCart,
@@ -115,6 +122,10 @@ export const CafeCartContextProvider = ({ children }: IProps) => {
     setCafeCart(cartInitialState);
   };
 
+  const getItem = (variantId: number) => {
+    return cafeCart?.items.find((item) => item.variantId === variantId);
+  };
+
   const value: ICafeCartContext = useMemo(() => {
     return {
       cafeCart,
@@ -123,8 +134,14 @@ export const CafeCartContextProvider = ({ children }: IProps) => {
       decrementItem,
       removeItem,
       clearCart,
+      getItem,
     };
   }, [cafeCart]);
 
-  return <CafeCartContext.Provider value={value}>{children}</CafeCartContext.Provider>;
+  return (
+    <CafeCartContext.Provider value={value}>
+      {children}
+      {cafeCart?.items?.length ? <CheckoutButton /> : null}
+    </CafeCartContext.Provider>
+  );
 };

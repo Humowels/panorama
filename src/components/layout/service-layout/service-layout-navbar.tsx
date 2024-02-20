@@ -14,5 +14,5 @@ export const ServiceLayoutNavbar = () => {
       {t(service.name)}
     </NavLink>
   ));
-  return <nav className="grid grid-cols-4 ">{renderServices}</nav>;
+  return <nav className="grid grid-cols-2 ">{renderServices}</nav>;
 };
