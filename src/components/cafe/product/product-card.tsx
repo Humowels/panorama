@@ -45,7 +45,7 @@ export const Product = ({ product }: IProps) => {
           alt={product.title}
           width={150}
           height={200}
-          className="mx-auto"
+          className="mx-auto w-[150px] h-[150px] object-cover rounded-md"
         />
         <p className="line-clamp-2 mt-2">{product.title}</p>
         <p>
