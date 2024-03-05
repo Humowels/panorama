@@ -5,6 +5,7 @@ import { useLocalStorage } from "react-use";
 import { IProductVariant } from "@/lib/interfaces/product.interface";
 import { ICafeCart, ICafeCartItem } from "@/lib/interfaces/cart.interface";
 import { CheckoutButton } from "@/components/cafe/checkout-button";
+import { parseNumber } from "@/lib/utils";
 
 interface ICafeCartContext {
   addItem: (variant: IProductVariant) => void;
@@ -13,7 +14,7 @@ interface ICafeCartContext {
   removeItem: (variant: IProductVariant) => void;
   clearCart: () => void;
   cafeCart?: ICafeCart;
-  getItem: (variantId: number) => ICafeCartItem | undefined;
+  getItem: (id: number) => ICafeCartItem | undefined;
 }
 
 const CafeCartContext = createContext<ICafeCartContext | null>(null);
@@ -39,7 +40,7 @@ export const CafeCartContextProvider = ({ children }: IProps) => {
   const [cafeCart, setCafeCart] = useLocalStorage<ICafeCart>("cafe-cart", cartInitialState);
   console.log(cafeCart);
   const addItem = (variant: IProductVariant) => {
-    const hasItem = Boolean(getItem(variant.variantId));
+    const hasItem = Boolean(getItem(variant.id));
 
     if (hasItem) {
       return incrementItem(variant);
@@ -48,18 +49,18 @@ export const CafeCartContextProvider = ({ children }: IProps) => {
       setCafeCart({
         ...cafeCart,
         items: [...cafeCart.items, { ...variant, quantity: 1 }],
-        totalPrice: cafeCart.totalPrice + variant.variantPrice,
+        totalPrice: cafeCart.totalPrice + parseNumber(variant.price),
       });
     }
   };
 
   const decrementItem = (variant: IProductVariant) => {
-    const { variantId, variantPrice } = variant;
+    const { id, price } = variant;
 
     if (cafeCart) {
       const items = cafeCart.items
         .map((item) => {
-          if (item.variantId === variantId) {
+          if (item.id === id) {
             return item.quantity === 1 ? null : { ...item, quantity: item.quantity - 1 };
           }
 
@@ -69,18 +70,18 @@ export const CafeCartContextProvider = ({ children }: IProps) => {
 
       setCafeCart({
         ...cafeCart,
-        totalPrice: cafeCart.totalPrice - variantPrice,
+        totalPrice: cafeCart.totalPrice - parseNumber(price),
         items,
       });
     }
   };
 
   const incrementItem = (variant: IProductVariant) => {
-    const { variantId, variantPrice } = variant;
+    const { id, price } = variant;
 
     if (cafeCart) {
       const items = cafeCart.items.map((item) => {
-        if (variantId === item.variantId) {
+        if (id === item.id) {
           return {
             ...item,
             quantity: item.quantity + 1,
@@ -92,7 +93,7 @@ export const CafeCartContextProvider = ({ children }: IProps) => {
 
       setCafeCart({
         ...cafeCart,
-        totalPrice: cafeCart.totalPrice + variantPrice,
+        totalPrice: cafeCart.totalPrice + parseNumber(price),
         items,
       });
     }
@@ -103,8 +104,8 @@ export const CafeCartContextProvider = ({ children }: IProps) => {
     let totalPrice = cafeCart.totalPrice;
 
     const items = cafeCart.items.filter((item) => {
-      if (item.variantId === variant.variantId) {
-        totalPrice -= item.quantity * item.variantPrice;
+      if (item.id === variant.id) {
+        totalPrice -= item.quantity * parseNumber(item.price);
 
         return false;
       }
@@ -122,8 +123,8 @@ export const CafeCartContextProvider = ({ children }: IProps) => {
     setCafeCart(cartInitialState);
   };
 
-  const getItem = (variantId: number) => {
-    return cafeCart?.items.find((item) => item.variantId === variantId);
+  const getItem = (id: number) => {
+    return cafeCart?.items.find((item) => item.id === id);
   };
 
   const value: ICafeCartContext = useMemo(() => {

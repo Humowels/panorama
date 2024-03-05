@@ -19,9 +19,9 @@ export const ProductVariantSelectItem = ({ productVariant, onChange, isActive }:
       className="py-4 px-6 border-y flex items-center gap-3 cursor-pointer"
       onClick={onChange.bind(null, productVariant)}
     >
-      <p className="flex-grow">{productVariant.variantName}</p>
+      <p className="flex-grow">{productVariant.title}</p>
       <p className="text-gray-400">
-        {priceFormatter(productVariant.variantPrice)} {t("common.currency")}
+        {priceFormatter(productVariant.price)} {t("common.currency")}
       </p>
       <div
         className={`w-8 h-8  flex flex-col items-center justify-center rounded-full border-2 border-primary ${

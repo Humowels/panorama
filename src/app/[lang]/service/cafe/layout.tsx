@@ -1,3 +1,5 @@
+"use client";
+
 import { CafeCartContextProvider } from "@/context/cafe-cart.context";
 import { ReactNode } from "react";
 

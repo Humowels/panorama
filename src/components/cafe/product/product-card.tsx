@@ -4,7 +4,7 @@ import { CheckIcon, PlusIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import { useLocaleContext } from "@/context/locale.context";
 import Link from "next/link";
-import { priceFormatter } from "@/lib/utils";
+import { parseNumber, priceFormatter } from "@/lib/utils";
 import { useCafeCartContext } from "@/context/cafe-cart.context";
 
 interface IProps {
@@ -14,9 +14,11 @@ interface IProps {
 export const Product = ({ product }: IProps) => {
   const { t, lang } = useLocaleContext();
   const { addItem, getItem, removeItem } = useCafeCartContext();
-  const hasItem = getItem(product.variants[0].variantId);
-  const startingPrice = product.variants.sort((a, b) => a.variantPrice - b.variantPrice)[0]
-    .variantPrice;
+  const hasItem = getItem(product.variants[0].id);
+  const startingPrice = product.variants.sort(
+    (a, b) => parseNumber(a.price) - parseNumber(b.price),
+  )[0].price;
+
   return (
     <div className="flex flex-col items-center justify-center p-3 border relative">
       <div className="flex justify-end w-full">
@@ -38,8 +40,14 @@ export const Product = ({ product }: IProps) => {
       </div>
 
       <Link href={`/${lang}/service/cafe/${product.id}`} className="text-center mt-3 font-semibold">
-        <Image src={product.productImage} alt={product.productName} width={200} height={200} />
-        {product.productName}
+        <Image
+          src={product.imageUrl}
+          alt={product.title}
+          width={150}
+          height={200}
+          className="mx-auto"
+        />
+        <p className="line-clamp-2 mt-2">{product.title}</p>
         <p>
           {t("cafe.starting_price", {
             price: priceFormatter(startingPrice),

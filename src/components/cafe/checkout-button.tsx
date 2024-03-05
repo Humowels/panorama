@@ -25,7 +25,7 @@ export const CheckoutButton = () => {
       <Button className="max-w-[350px] w-full mx-auto rounded-md bg-primary h-14 text-white flex items-center justify-between">
         <p>{t("cafe.checkout")}</p>
         <p className="flex items-center text-gray-500">
-          {priceFormatter(cafeCart?.totalPrice || 0)} {t("common.currency")}
+          {priceFormatter(cafeCart?.totalPrice || "0")} {t("common.currency")}
           <ChevronRightIcon width={18} />
         </p>
       </Button>

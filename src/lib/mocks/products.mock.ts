@@ -3,56 +3,86 @@ import { IProduct } from "@/lib/interfaces/product.interface";
 export const productMock: IProduct[] = [
   {
     id: 1,
-    productImage:
-      "https://i.ibb.co/P1V5w7n/Pngtree-americano-coffee-beans-transparent-white-9097377.png",
-    productName: "Американо",
-    variants: [
-      {
-        variantId: 1,
-        variantName: "Одинарный",
-        variantPrice: 15000,
-      },
-      {
-        variantId: 2,
-        variantName: "Двойной",
-        variantPrice: 18000,
-      },
+    imageUrl: "https://example.com/image1.jpg",
+    images: [
+      { id: "1", src: "https://example.com/image1-1.jpg" },
+      { id: "2", src: "https://example.com/image1-2.jpg" },
     ],
+    title: "Product 1",
+    variants: [
+      { id: 1, title: "Variant 1", price: "19.99" },
+      { id: 2, title: "Variant 2", price: "29.99" },
+    ],
+    price: "19.99",
   },
   {
     id: 2,
-    productImage:
-      "https://i.ibb.co/P1V5w7n/Pngtree-americano-coffee-beans-transparent-white-9097377.png",
-    productName: "Американо",
-    variants: [
-      {
-        variantId: 3,
-        variantName: "Одинарный",
-        variantPrice: 15000,
-      },
-      {
-        variantId: 4,
-        variantName: "Двойной",
-        variantPrice: 18000,
-      },
+    imageUrl: "https://example.com/image2.jpg",
+    images: [
+      { id: "1", src: "https://example.com/image2-1.jpg" },
+      { id: "2", src: "https://example.com/image2-2.jpg" },
     ],
+    title: "Product 2",
+    variants: [
+      { id: 1, title: "Variant 1", price: "29.99" },
+      { id: 2, title: "Variant 2", price: "39.99" },
+    ],
+    price: "29.99",
   },
   {
     id: 3,
-    productImage:
-      "https://i.ibb.co/P1V5w7n/Pngtree-americano-coffee-beans-transparent-white-9097377.png",
-    productName: "Американо",
-    variants: [
-      {
-        variantId: 5,
-        variantName: "Одинарный",
-        variantPrice: 15000,
-      },
-      {
-        variantId: 6,
-        variantName: "Двойной",
-        variantPrice: 18000,
-      },
+    imageUrl: "https://example.com/image3.jpg",
+    images: [
+      { id: "1", src: "https://example.com/image3-1.jpg" },
+      { id: "2", src: "https://example.com/image3-2.jpg" },
     ],
+    title: "Product 3",
+    variants: [
+      { id: 1, title: "Variant 1", price: "39.99" },
+      { id: 2, title: "Variant 2", price: "49.99" },
+    ],
+    price: "39.99",
+  },
+  {
+    id: 4,
+    imageUrl: "https://example.com/image4.jpg",
+    images: [
+      { id: "1", src: "https://example.com/image4-1.jpg" },
+      { id: "2", src: "https://example.com/image4-2.jpg" },
+    ],
+    title: "Product 4",
+    variants: [
+      { id: 1, title: "Variant 1", price: "49.99" },
+      { id: 2, title: "Variant 2", price: "59.99" },
+    ],
+    price: "49.99",
+  },
+  {
+    id: 5,
+    imageUrl: "https://example.com/image5.jpg",
+    images: [
+      { id: "1", src: "https://example.com/image5-1.jpg" },
+      { id: "2", src: "https://example.com/image5-2.jpg" },
+    ],
+    title: "Product 5",
+    variants: [
+      { id: 1, title: "Variant 1", price: "59.99" },
+      { id: 2, title: "Variant 2", price: "69.99" },
+    ],
+    price: "59.99",
+  },
+  {
+    id: 6,
+    imageUrl: "https://example.com/image6.jpg",
+    images: [
+      { id: "1", src: "https://example.com/image6-1.jpg" },
+      { id: "2", src: "https://example.com/image6-2.jpg" },
+    ],
+    title: "Product 6",
+    variants: [
+      { id: 1, title: "Variant 1", price: "69.99" },
+      { id: 2, title: "Variant 2", price: "79.99" },
+    ],
+    price: "69.99",
   },
 ];

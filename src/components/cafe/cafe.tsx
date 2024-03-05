@@ -1,9 +1,17 @@
 "use client";
 import { useLocaleContext } from "@/context/locale.context";
 import { Category } from "@/components/cafe/categories/category";
+import { useQuery } from "@tanstack/react-query";
+import { getAllProductsQueryFn } from "@/react-query/queries/products.query";
+import { IProduct } from "@/lib/interfaces/product.interface";
 
 export const Cafe = () => {
   const { t } = useLocaleContext();
+  const { data, isLoading } = useQuery<IProduct[]>({
+    queryKey: ["all-products"],
+    queryFn: () => getAllProductsQueryFn(),
+  });
+
   return (
     <div className="px-4 py-5">
       <div className="flex items-center justify-between">
@@ -12,7 +20,7 @@ export const Cafe = () => {
       </div>
       <p className="mt-3 border-b pb-4">{t("cafe.available_delivery_and_order")}</p>
 
-      <Category categoryName="Горячие напитки" />
+      <Category products={data} categoryName="Все продукты" isLoading={isLoading} />
     </div>
   );
 };
