@@ -17,3 +17,7 @@ interface IProductVariantImage {
   id: string;
   src: string;
 }
+
+export interface IPaginatedItem<T> {
+  data: T[];
+}

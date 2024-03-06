@@ -14,7 +14,8 @@
     "about_us": "О нас",
     "choose_wash_type": "Выберите тип мойки",
     "choose_additional_service": "Выберите доп.услуги",
-    "checkout": "Оформить"
+    "checkout": "Оформить",
+    "product_added_to_cart": "Товар добавлен в корзину"
   },
   "order": {
     "order_success": "Мы приняли ваш заказ!",
@@ -47,12 +48,14 @@
     "choose_payment": "Укажите метод оплаты",
     "waiting_for_payment": "Ожидание оплаты",
     "waiting_for_payment_desc": "Мы выслали вам счет на указанную вами платежную систему.",
-    "cancel_order": "Отменить заказ"
+    "cancel_order": "Отменить заказ",
+    "select_variant": "Выберите вариант"
   },
   "common": {
     "back": "Назад",
     "filter": "Фильтр",
     "back_to_homepage": "Перейти на главную",
-    "currency": "сум"
+    "currency": "сум",
+    "more": "еще"
   }
 }

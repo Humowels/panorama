@@ -12,6 +12,7 @@ import { useCafeCartContext } from "@/context/cafe-cart.context";
 import { useQuery } from "@tanstack/react-query";
 import { getProductByIdQueryFn } from "@/react-query/queries/products.query";
 import { ProductPageSkeleton } from "@/components/skeletons/product-page-skeleton";
+import { Bounce, toast } from "react-toastify";
 
 interface IProps {
   productId?: string;
@@ -39,6 +40,20 @@ export const SingleProduct = ({ productId }: IProps) => {
     return null;
   }
 
+  const handleAddToCard = () => {
+    toast.success(t("services.product_added_to_cart"), {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "dark",
+      transition: Bounce,
+    });
+    addItem(selectedVariant);
+  };
+
   const productsVariants = product.variants.map((variant) => (
     <ProductVariantSelectItem
       key={variant.id}
@@ -51,7 +66,7 @@ export const SingleProduct = ({ productId }: IProps) => {
   return (
     <div className="absolute overflow-y-scroll min-h-screen w-full left-0 top-0 bg-service_bg z-10 flex flex-col pb-3">
       <div className="flex-grow">
-        <div className="w-full flex justify-end p-5">
+        <div className="w-full flex justify-end p-5 mb-4">
           <div
             onClick={router.back}
             className="flex cursor-pointer items-center justify-center w-10 h-10 bg-primary rounded-full"
@@ -69,12 +84,21 @@ export const SingleProduct = ({ productId }: IProps) => {
         <p className="px-6 font-bold text-2xl my-5">{product.title}</p>
         <div className="[&>*:last-child]:border-t-0">{productsVariants}</div>
       </div>
-      <Button
-        onClick={addItem.bind(null, selectedVariant)}
-        className="bg-primary max-w-[350px] w-full h-14 text-white mx-auto block sticky bottom-0"
-      >
-        {t("cafe.add")}
-      </Button>
+      {selectedVariant ? (
+        <Button
+          onClick={handleAddToCard}
+          className="bg-primary max-w-[350px] w-full h-14 text-white mx-auto block sticky bottom-0"
+        >
+          {t("cafe.add")}
+        </Button>
+      ) : (
+        <Button
+          variant="outlined"
+          className=" max-w-[350px] w-full h-14 mx-auto block sticky bottom-0"
+        >
+          {t("cafe.select_variant")}
+        </Button>
+      )}
     </div>
   );
 };

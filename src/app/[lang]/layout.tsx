@@ -1,9 +1,12 @@
 "use client";
-import "./globals.css";
 import { LocaleContextProvider } from "@/context/locale.context";
 import ReactQueryProvider from "@/context/react-query.context";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
+
+import "./globals.css";
+import "react-toastify/dist/ReactToastify.css";
 
 export interface ICommonProps {
   params: {
@@ -65,6 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ReactQueryProvider>
             <LocaleContextProvider>{children}</LocaleContextProvider>
           </ReactQueryProvider>
+          <ToastContainer />
         </div>
       </body>
     </html>
