@@ -11,6 +11,7 @@ export interface IProductVariant {
   id: number;
   title: string;
   price: string;
+  productId: number;
 }
 
 interface IProductVariantImage {

@@ -1,4 +1,4 @@
-import { OrderStatus } from "@/components/cafe/order-status/order-status";
+import { OrderStatus } from "@/components/cafe/checkout/order-status";
 
 export default function OrderStatusPage() {
   return (

@@ -7,21 +7,14 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { useLocaleContext } from "@/context/locale.context";
 import { useRouter } from "next/navigation";
-
-interface ILocation {
-  title: string;
-  advantages: string[];
-}
-
-const locations: ILocation[] = [
-  { title: "К столу в кафе", advantages: [] },
-  { title: "IT-Park Mirzo-Ulugbek", advantages: ["Бесплатно", "курьером."] },
-  { title: "По городу Ташкент", advantages: ["Платно"] },
-];
+import { IAddress } from "@/lib/interfaces/checkout.interface";
+import { useCafeCartContext } from "@/context/cafe-cart.context";
+import { useCafeCheckoutContext } from "@/context/cafe-checkout.context";
+import { locationsMock } from "@/lib/mocks/address.mock";
 
 export const Checkout = () => {
   const { t, lang } = useLocaleContext();
-  const [selectedLocation, setSelectedLocation] = useState<ILocation>(locations[0]);
+  const { selectedAddress, setSelectedAddress } = useCafeCheckoutContext();
   const router = useRouter();
   return (
     <div className="flex flex-col ">
@@ -35,14 +28,14 @@ export const Checkout = () => {
           <p className="text-center">{t("cafe.where_to_delivery")}</p>
         </div>
         <div className="flex flex-col space-y-3">
-          {locations.map((location, index) => (
+          {locationsMock.map((location, index) => (
             <OrderLocations
-              serviceName={location.title}
+              serviceName={location.address}
               key={index}
-              isActive={location.title === selectedLocation.title}
+              isActive={location.address === selectedAddress.address}
               icon=""
-              advantages={location.advantages}
-              onChange={setSelectedLocation.bind(null, location)}
+              advantages={[]}
+              onChange={setSelectedAddress.bind(null, location)}
             />
           ))}
         </div>

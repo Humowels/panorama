@@ -24,14 +24,14 @@ export const Product = ({ product }: IProps) => {
       <div className="flex justify-end w-full">
         {Boolean(hasItem) ? (
           <div
-            onClick={removeItem.bind(null, product.variants[0])}
+            onClick={removeItem.bind(null, { ...product.variants[0], productId: product.id })}
             className="w-8 h-8 cursor-pointer flex items-center justify-center border-2 bg-primary text-white rounded-full"
           >
             <CheckIcon width={24} />
           </div>
         ) : (
           <div
-            onClick={addItem.bind(null, product.variants[0])}
+            onClick={addItem.bind(null, { ...product.variants[0], productId: product.id })}
             className="w-8 h-8 cursor-pointer flex items-center justify-center border-2 rounded-full"
           >
             <PlusIcon width={24} />

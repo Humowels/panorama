@@ -38,11 +38,11 @@ const cartInitialState: ICafeCart = {
 
 export const CafeCartContextProvider = ({ children }: IProps) => {
   const [cafeCart, setCafeCart] = useLocalStorage<ICafeCart>("cafe-cart", cartInitialState);
-  console.log(cafeCart);
-
+  console.log({ cafeCart });
   const addItem = (variant: IProductVariant) => {
     const hasItem = Boolean(getItem(variant.id));
 
+    console.log({ variant });
     if (hasItem) {
       return incrementItem(variant);
     }
