@@ -49,7 +49,8 @@
     "waiting_for_payment": "Ожидание оплаты",
     "waiting_for_payment_desc": "Мы выслали вам счет на указанную вами платежную систему.",
     "cancel_order": "Отменить заказ",
-    "select_variant": "Выберите вариант"
+    "select_variant": "Выберите вариант",
+    "choose_shipping_methods": "Выберите тип доставка"
   },
   "common": {
     "back": "Назад",

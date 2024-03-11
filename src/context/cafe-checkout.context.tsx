@@ -7,13 +7,14 @@ import {
   useMemo,
   useState,
 } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { orderCreateMutationFn } from "@/react-query/mutation/checkout.mutation";
 import { IAddress, ICreateOrder, IPaymentMethod } from "@/lib/interfaces/checkout.interface";
 import { useCafeCartContext } from "@/context/cafe-cart.context";
 import { useRouter } from "next/navigation";
 import { locationsMock } from "@/lib/mocks/address.mock";
 import { paymentMethodsMock } from "@/lib/mocks/payment-methods.mock";
+import { IShippingMethod } from "@/lib/interfaces/shipping-methods.interface";
 
 interface ICafeCheckoutContext {
   createOrder: () => Promise<any>;
@@ -21,6 +22,8 @@ interface ICafeCheckoutContext {
   setSelectedAddress: Dispatch<SetStateAction<IAddress>>;
   selectedPaymentMethod: IPaymentMethod;
   setSelectedPaymentMethod: Dispatch<SetStateAction<IPaymentMethod>>;
+  selectedShippingMethod: IShippingMethod | null;
+  setSelectedShippingMethod: Dispatch<SetStateAction<IShippingMethod | null>>;
 }
 
 export const CafeCheckoutContext = createContext<ICafeCheckoutContext | null>(null);
@@ -44,12 +47,16 @@ export const CafeCheckoutContextProvider = ({ children }: IProps) => {
     paymentMethodsMock[0],
   );
   const router = useRouter();
+  const [selectedShippingMethod, setSelectedShippingMethod] = useState<IShippingMethod | null>(
+    null,
+  );
   const createOrderMutation = useMutation({
     mutationFn: (body: ICreateOrder) => orderCreateMutationFn(body),
     onSuccess: () => {
       router.push("order-success");
     },
   });
+
   const { cafeCart } = useCafeCartContext();
 
   const createOrder = async () => {
@@ -70,7 +77,7 @@ export const CafeCheckoutContextProvider = ({ children }: IProps) => {
         quantity: item.quantity,
         price: item.price,
       })),
-      shipping_line: selectedAddress.address,
+      shipping_line: selectedShippingMethod?.title as string,
       gateway: selectedPaymentMethod.title,
     };
 
@@ -84,8 +91,10 @@ export const CafeCheckoutContextProvider = ({ children }: IProps) => {
       setSelectedAddress,
       selectedPaymentMethod,
       setSelectedPaymentMethod,
+      selectedShippingMethod,
+      setSelectedShippingMethod,
     };
-  }, [selectedAddress, selectedAddress]);
+  }, [selectedAddress, selectedAddress, selectedShippingMethod, selectedPaymentMethod]);
 
   return <CafeCheckoutContext.Provider value={value}>{children}</CafeCheckoutContext.Provider>;
 };

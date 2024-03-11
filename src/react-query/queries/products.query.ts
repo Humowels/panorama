@@ -2,7 +2,7 @@ import { getBaseUrl } from "@/lib/utils";
 import fetcher from "@/react-query/fetcher";
 
 export const getAllProductsQueryFn = (pageParams?: string) =>
-  fetcher(pageParams || `${getBaseUrl()}/products`)
+  fetcher(pageParams || `${getBaseUrl()}/products?filter[product_type]=Товар`)
     .then((res) => res.json())
     .then((res) => res);
 

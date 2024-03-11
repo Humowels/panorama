@@ -1,14 +1,10 @@
 "use client";
 import { OrderLocations } from "@/components/cafe/checkout/order-locations";
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { priceFormatter } from "@/lib/utils";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
+import { ChevronLeftIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { useLocaleContext } from "@/context/locale.context";
 import { useRouter } from "next/navigation";
-import { IAddress } from "@/lib/interfaces/checkout.interface";
-import { useCafeCartContext } from "@/context/cafe-cart.context";
 import { useCafeCheckoutContext } from "@/context/cafe-checkout.context";
 import { locationsMock } from "@/lib/mocks/address.mock";
 

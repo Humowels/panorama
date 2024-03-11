@@ -7,20 +7,25 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { paymentMethodsMock } from "@/lib/mocks/payment-methods.mock";
 import { useCafeCheckoutContext } from "@/context/cafe-checkout.context";
+import { useCallback } from "react";
 
 export const Payment = () => {
   const { t, lang } = useLocaleContext();
-  const { selectedPaymentMethod, setSelectedPaymentMethod, createOrder } = useCafeCheckoutContext();
+  const { selectedPaymentMethod, setSelectedPaymentMethod } = useCafeCheckoutContext();
   const router = useRouter();
 
-  const renderPaymentMethods = paymentMethodsMock.map((method, index) => (
-    <PaymentMethod
-      key={index}
-      isActive={method.title === selectedPaymentMethod.title}
-      onChange={setSelectedPaymentMethod.bind(null, method)}
-      serviceName={method.title}
-    />
-  ));
+  const renderPaymentMethods = useCallback(
+    () =>
+      paymentMethodsMock.map((method, index) => (
+        <PaymentMethod
+          key={index}
+          isActive={method.title === selectedPaymentMethod.title}
+          onChange={setSelectedPaymentMethod.bind(null, method)}
+          serviceName={method.title}
+        />
+      )),
+    [selectedPaymentMethod],
+  );
 
   return (
     <div>
@@ -32,15 +37,12 @@ export const Payment = () => {
         />
         <p className="text-center">{t("cafe.choose_payment")}</p>
       </div>
-      <div className="flex flex-col space-y-3">{renderPaymentMethods}</div>
+      <div className="flex flex-col space-y-3">{renderPaymentMethods()}</div>
       <Link
-        href={`/${lang}/service/cafe/order-status`}
+        href={`/${lang}/service/cafe/shipping-methods`}
         className="w-full px-4 flex items-center justify-center sticky bottom-2 mt-4"
       >
-        <Button
-          onClick={createOrder}
-          className="max-w-[350px] w-full mx-auto rounded-md bg-primary h-14 text-white text-center"
-        >
+        <Button className="max-w-[350px] w-full mx-auto rounded-md bg-primary h-14 text-white text-center">
           <p>{t("cafe.continue")}</p>
         </Button>
       </Link>
