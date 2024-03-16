@@ -50,9 +50,11 @@ export const CafeCheckoutContextProvider = ({ children }: IProps) => {
   const [selectedShippingMethod, setSelectedShippingMethod] = useState<IShippingMethod | null>(
     null,
   );
+  const { clearCart } = useCafeCartContext();
   const createOrderMutation = useMutation({
     mutationFn: (body: ICreateOrder) => orderCreateMutationFn(body),
     onSuccess: () => {
+      clearCart();
       router.push("order-success");
     },
   });
@@ -77,10 +79,9 @@ export const CafeCheckoutContextProvider = ({ children }: IProps) => {
         quantity: item.quantity,
         price: item.price,
       })),
-      shipping_line: selectedShippingMethod?.title as string,
+      shipping_line: selectedShippingMethod?.id as string,
       gateway: selectedPaymentMethod.title,
     };
-
     await createOrderMutation.mutateAsync(body);
   };
 

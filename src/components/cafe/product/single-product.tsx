@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { useLocaleContext } from "@/context/locale.context";
 import { useCafeCartContext } from "@/context/cafe-cart.context";
 import { useQuery } from "@tanstack/react-query";
-import { getProductByIdQueryFn } from "@/react-query/queries/products.query";
+import { getProductByIdQueryFn } from "@/react-query/queries/services.query";
 import { ProductPageSkeleton } from "@/components/skeletons/product-page-skeleton";
 import { Bounce, toast } from "react-toastify";
 

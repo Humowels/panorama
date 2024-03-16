@@ -12,7 +12,7 @@ export const ServiceLayout = ({ children }: IProps) => {
     <div className="flex flex-col min-h-screen bg-service_bg">
       <ServiceLayoutHeader />
       <ServiceLayoutNavbar />
-      <div className="flex-grow ">{children}</div>
+      <div className="flex-grow flex flex-col ">{children}</div>
     </div>
   );
 };

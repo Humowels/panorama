@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, ReactNode, useContext, useMemo } from "react";
+import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useMemo } from "react";
 import { useLocalStorage } from "react-use";
 import { IProductVariant } from "@/lib/interfaces/product.interface";
 import { ICafeCart, ICafeCartItem } from "@/lib/interfaces/cart.interface";
@@ -14,6 +14,7 @@ interface ICafeCartContext {
   removeItem: (variant: IProductVariant) => void;
   clearCart: () => void;
   cafeCart?: ICafeCart;
+  setCafeCart: Dispatch<SetStateAction<ICafeCart | undefined>>;
   getItem: (id: number) => ICafeCartItem | undefined;
 }
 
@@ -31,7 +32,7 @@ interface IProps {
   children: ReactNode;
 }
 
-const cartInitialState: ICafeCart = {
+export const cartInitialState: ICafeCart = {
   totalPrice: 0,
   items: [],
 };
@@ -131,6 +132,7 @@ export const CafeCartContextProvider = ({ children }: IProps) => {
   const value: ICafeCartContext = useMemo(() => {
     return {
       cafeCart,
+      setCafeCart,
       addItem,
       incrementItem,
       decrementItem,

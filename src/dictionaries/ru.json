@@ -18,6 +18,7 @@
     "product_added_to_cart": "Товар добавлен в корзину"
   },
   "order": {
+    "order": "Заказ",
     "order_success": "Мы приняли ваш заказ!",
     "order_success_msg": "Перейдите на главную или в пункт “Заказы и услуги что бы следить за процессом",
     "all_services_and_orders": "Все заказы и услуги",
@@ -25,13 +26,16 @@
     "close_in_seconds": "Закроем автоматически через {{ second }} ceкунд...",
     "all_orders_combined": "Все заказы объединены в один счет",
     "edit_order": "Изменить заказ",
+    "total_price": "Итоговая цена",
     "statuses": {
       "accepted": "Принято",
       "in_process": "В процессе",
       "preparation": "Подготовка",
       "ready": "Готово"
     },
-    "pay_all": "Оплатить всё"
+    "pay_all": "Оплатить всё",
+    "order_success_wait_for_waiter": "Заказ принят!\n Ожидайте официанта\n",
+    "go_back_to_menu": "\nПерейти в меню"
   },
   "car_wash": {
     "my_cars": "Мои автомобили",

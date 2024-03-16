@@ -1,7 +1,7 @@
 "use client";
 import { useLocaleContext } from "@/context/locale.context";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { getAllProductsQueryFn } from "@/react-query/queries/products.query";
+import { getAllProductsQueryFn } from "@/react-query/queries/services.query";
 import { Button } from "@/components/ui/button";
 import { Product } from "@/components/cafe/product/product-card";
 import { ProductsLoader } from "@/components/skeletons/products-loader";
@@ -11,7 +11,7 @@ export const Cafe = () => {
 
   const { data, isFetching, isLoading, hasNextPage, fetchNextPage } = useInfiniteQuery({
     queryKey: ["all-products", lang],
-    queryFn: ({ pageParam }) => getAllProductsQueryFn(pageParam),
+    queryFn: ({ pageParam }) => getAllProductsQueryFn("Товар", pageParam),
     getNextPageParam: (lastPage) => lastPage.links.next,
   });
 

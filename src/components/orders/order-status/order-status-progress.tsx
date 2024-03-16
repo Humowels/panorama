@@ -9,38 +9,55 @@ interface IProps {
 }
 
 export const OrderStatusProgress = ({ status }: IProps) => {
+  const labels: Record<"Новый" | "Обработан" | "Собран" | "Доставлен", string> = {
+    Новый: "14%",
+    Обработан: "40%",
+    Собран: "64%",
+    Доставлен: "100%",
+  };
+
   const statusPercents: Record<TOrderStatuses, string> = {
-    new: "14%",
-    process: "40%",
-    preparation: "64%",
-    ready: "100%",
+    Новый: "14%",
+    Принят: "14%",
+    Обработан: "40%",
+    Собран: "64%",
+    Доставлен: "100%",
+    Доставляется: "100%",
+    Отменен: "100%",
   };
 
   const statusTextPositions: Record<TOrderStatuses, string> = {
-    new: "20%",
-    process: "13%",
-    preparation: "11%",
-    ready: "30%",
+    Новый: "20%",
+    Принят: "20%",
+    Обработан: "13%",
+    Собран: "11%",
+    Доставлен: "30%",
+    Доставляется: "30%",
+    Отменен: "30%",
   };
 
   const { t } = useLocaleContext();
 
   const statusLabels: Record<TOrderStatuses, string> = {
-    new: t("order.statuses.accepted"),
-    process: t("order.statuses.in_process"),
-    preparation: t("order.statuses.preparation"),
-    ready: t("order.statuses.ready"),
+    Новый: t("order.statuses.accepted"),
+    Принят: t("order.statuses.accepted"),
+    Обработан: t("order.statuses.in_process"),
+    Собран: t("order.statuses.preparation"),
+    Доставлен: t("order.statuses.ready"),
+    Доставляется: t("order.statuses.ready"),
+    Отменен: t("order.statuses.ready"),
   };
 
   return (
     <div className="py-6">
       <div className="w-full bg-gray-300 h-1 rounded-full relative flex flex-col justify-center">
-        <div className="flex items-center justify-evenly">
-          {Object.entries(statusPercents).map(([key, value], index) => {
+        <div className="flex items-center w-full ">
+          {Object.entries(labels).map(([key, value], index) => {
             const isLastStatus = index === 3;
             const isActiveStatus = key === status;
             return (
               <div
+                key={index}
                 className={twMerge(
                   "w-full  relative",
                   !isLastStatus &&

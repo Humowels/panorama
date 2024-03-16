@@ -3,51 +3,36 @@ import { OrdersHeader } from "@/components/orders/orders-header";
 import { useLocaleContext } from "@/context/locale.context";
 import { OrderStatus } from "@/components/orders/order-status/order-status";
 import { Button } from "@/components/ui/button";
+import { useQuery } from "@tanstack/react-query";
+import { ordersQueryFn } from "@/react-query/queries/orders.query";
+import { IOrder } from "@/lib/interfaces/order.interface";
 
 export const Orders = () => {
   const { t } = useLocaleContext();
+  const { data, isLoading } = useQuery<IOrder[]>({
+    queryKey: ["orders"],
+    queryFn: () => ordersQueryFn(),
+  });
+
+  if (isLoading) {
+    return null;
+  }
+
+  const renderOrders = data?.map((order, index) => (
+    <OrderStatus
+      key={index}
+      status={order.status}
+      orderId={order.id}
+      carNumber={{ regionCode: "70", number: "C270QA" }}
+      price={order.totalPrice}
+    />
+  ));
+
   return (
     <div className="">
       <OrdersHeader />
       <p className="border-b py-2 px-4 font-semibold">{t("order.all_orders_combined")}</p>
-      <div className="mt-2 space-y-2">
-        <OrderStatus
-          status="new"
-          variant="car_wash"
-          carNumber={{ regionCode: "70", number: "C270QA" }}
-          price="200.000"
-        />
-        <OrderStatus
-          status="preparation"
-          variant="car_wash"
-          carNumber={{ regionCode: "70", number: "C270QA" }}
-          price="400.000"
-        />
-        <OrderStatus
-          status="process"
-          variant="car_wash"
-          carNumber={{ regionCode: "70", number: "C270QA" }}
-          price="500.000"
-        />
-        <OrderStatus
-          status="ready"
-          variant="car_wash"
-          carNumber={{ regionCode: "70", number: "C270QA" }}
-          price="600.000"
-        />{" "}
-        <OrderStatus
-          status="process"
-          variant="car_wash"
-          carNumber={{ regionCode: "70", number: "C270QA" }}
-          price="500.000"
-        />
-        <OrderStatus
-          status="ready"
-          variant="car_wash"
-          carNumber={{ regionCode: "70", number: "C270QA" }}
-          price="600.000"
-        />
-      </div>
+      <div className="mt-2 space-y-2">{renderOrders}</div>
       <Button
         className="flex h-16 items-center justify-between sticky mt-2 bottom-5 w-[95%] mx-auto"
         variant="primary"

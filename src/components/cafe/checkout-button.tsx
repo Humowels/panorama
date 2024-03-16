@@ -10,7 +10,13 @@ import { useLocation } from "react-use";
 export const CheckoutButton = () => {
   const { t, lang } = useLocaleContext();
   const { cafeCart } = useCafeCartContext();
-  const unAllowedPages = ["checkout", "payment", "order-status", "shipping-methods"];
+  const unAllowedPages = [
+    "checkout",
+    "payment",
+    "order-status",
+    "shipping-methods",
+    "order-success",
+  ];
   const location = useLocation();
 
   const isDisAllowed = unAllowedPages.some((page) => location.pathname?.includes(page));

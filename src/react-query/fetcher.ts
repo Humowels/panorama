@@ -6,11 +6,19 @@ interface IOptions {
   method: "GET" | "POST" | "PUT" | "DELETE";
 }
 
+const getTelegramId = () => {
+  if (process.env.NODE_ENV === "production") {
+    return String(getUserId());
+  }
+
+  return String(5127851350);
+};
+
 const updateOptions = (options?: IOptions) => {
   const update = { ...options };
   update.headers = {
-    "X-Telegram-Id": String(getUserId()),
-    "X-Magic-Id": String(process.env.NEXT_PUBLIC_MAGIC_KEY),
+    "X-Telegram-Id": getTelegramId(),
+    "X-Magic-Id": "",
     "Content-Type": "application/json",
     Accept: "application/json",
   };
