@@ -1,22 +1,66 @@
 {
   "login": {
     "enter_your_phone_number_with_code": "Telefon raqamingizni kiriting",
-    "we_will_send_otp": "Biz SMS orqali 4 xonali kod yuboramiz",
-    "we_sent_sms": "Sizning raqamingizga SMS yubordik",
-    "enter_otp": "SMS orqali kelgan 4 xonali sonni kiriting"
+    "we_will_send_otp": "Biz 4-xonali SMS-kodni yuboramiz",
+    "we_sent_sms": "Biz sizning raqamga SMS yubordik",
+    "enter_otp": "SMS orqali borgan 4-xonali kodni kiriting"
   },
   "services": {
-    "welcome_message": "Panorama BOT ga xush kelibsiz",
-    "watch_video": "Xush kelibsiz videoni tomosha qiling yoki kerakli toifani tanlang",
-    "car_wash": "Moshina yuvish",
-    "contact": "Bog'lanish",
-    "about_us": "Biz haqimizda"
+    "welcome_message": "Panorama BOT ga xush kelibsiz!",
+    "watch_video": "Xush kelibsiz, rolikni ko'ring yoki kerakli kategoriyani tanlang",
+    "car_wash": "Avtomoyka",
+    "cafe": "Kafe",
+    "contact": "Aloqa",
+    "about_us": "Biz haqimizda",
+    "choose_wash_type": "Moyka turini tanlang",
+    "choose_additional_service": "Qo'shimcha xizmatlarni tanlang",
+    "checkout": "Buyurtma bering",
+    "product_added_to_cart": "Mahsulot savatga qo'shildi"
+  },
+  "order": {
+    "order": "Buyurtma",
+    "order_success": "Sizning buyurtmangiz qabul qilindi!",
+    "order_success_msg": "Bosh sahifaga o'tish yoki 'Buyurtmalar va xizmatlar' bo'limiga o'tib, jarayonni kuzatishingiz mumkin",
+    "all_services_and_orders": "Barcha xizmatlar va buyurtmalar",
+    "order_success_layer_message": "-.",
+    "close_in_seconds": "{{ second }} sekund ichida avtomatik ravishda yopiladi...",
+    "all_orders_combined": "Barcha buyurtmalar birlikda hisobga olingan",
+    "edit_order": "Buyurtmani o'zgartirish",
+    "total_price": "Jami narx",
+    "statuses": {
+      "accepted": "Qabul qilindi",
+      "in_process": "Ishlanmoqda",
+      "preparation": "Tayyorlash",
+      "ready": "Tayyor"
+    },
+    "pay_all": "Hammasini to'lang",
+    "order_success_wait_for_waiter": "Buyurtma qabul qilindi!\n Ofitsiantni kutishingiz mumkin\n",
+    "go_back_to_menu": "\nMenyuga qaytish"
   },
   "car_wash": {
-    "my_cars": "Mening moshinalarim",
-    "choose_car_to_wash": "Yuvish uchun moshina tanlang"
+    "my_cars": "Mening avtomobillarim",
+    "choose_car_to_wash": "Moyka haqida ma'lumot"
+  },
+  "cafe": {
+    "available_delivery_and_order": "Yetkazib berish va stulga yetkazib berish mavjud",
+    "starting_price": "{{ price }} so'm dan boshlab",
+    "buy": "Sotib olish",
+    "checkout": "Buyurtma bering",
+    "add": "Qo'shish",
+    "continue": "Davom eting",
+    "where_to_delivery": "Qayerga etkazib berish kerak?",
+    "choose_payment": "To'lov usulini tanlang",
+    "waiting_for_payment": "To'lovni kutish",
+    "waiting_for_payment_desc": "Sizning ko'rsatgan to'lov tizimingizga chek yubordik.",
+    "cancel_order": "Buyurtmani bekor qilish",
+    "select_variant": "Variantni tanlang",
+    "choose_shipping_methods": "Yetkazib berish usullarini tanlang"
   },
   "common": {
-    "back": "Ortga"
+    "back": "Orqaga",
+    "filter": "Filtr",
+    "back_to_homepage": "Bosh sahifaga qaytish",
+    "currency": "so'm",
+    "more": "yana"
   }
 }
