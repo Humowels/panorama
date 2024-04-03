@@ -15,7 +15,7 @@ import { IProduct } from "@/lib/interfaces/product.interface";
 import { ICreateOrder } from "@/lib/interfaces/checkout.interface";
 import { useMutation, UseMutationResult } from "@tanstack/react-query";
 import { orderCreateMutationFn } from "@/react-query/mutation/checkout.mutation";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 interface ICarWashCartContext {
   carWashCart?: ICafeCart;
@@ -40,6 +40,8 @@ interface IProps {
 }
 
 export const CarWashContextProvider = ({ children }: IProps) => {
+  const { carId } = useParams();
+
   const [carWashCart, setCarWashCart] = useLocalStorage<ICafeCart>(
     "panorama-carwash-cart",
     cartInitialState,
@@ -74,6 +76,7 @@ export const CarWashContextProvider = ({ children }: IProps) => {
       })),
       shipping_line: "9b897b79-2ad0-4333-a5ad-c6c4acaa12db",
       gateway: "Наличными",
+      note: carId.toString().replaceAll("%20", " "),
     };
     await createOrderMutation.mutateAsync(body);
   };

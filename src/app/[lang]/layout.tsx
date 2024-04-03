@@ -35,6 +35,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   }, []);
 
   useEffect(() => {
+    const userId = searchParams.get("userId");
+    if (userId) {
+      localStorage.setItem("userId", userId);
+    }
+  }, []);
+
+  useEffect(() => {
     if (window.Telegram && initialPathname) {
       window.Telegram.WebApp.expand();
       window.Telegram.WebApp.enableClosingConfirmation();

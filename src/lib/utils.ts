@@ -10,11 +10,11 @@ export function priceFormatter(price: string | number): string {
     price = price.toString();
   }
 
-  return price.replaceAll(",", "").replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  return price.replaceAll(" ", "").replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
 export function parseNumber(price: string): number {
-  return parseInt(price.replaceAll(",", ""));
+  return parseInt(price.replaceAll(" ", ""));
 }
 
 export const getUserId = (): number => {
@@ -22,7 +22,11 @@ export const getUserId = (): number => {
   if (chatId) {
     return chatId;
   }
+  const localStoredUserId = localStorage.getItem("userId");
 
+  if (localStoredUserId) {
+    return Number(localStoredUserId);
+  }
   if (process.env.NODE_ENV === "development") {
     return Number(process.env.NEXT_PUBLIC_MOCK_USER_ID);
   }
