@@ -48,19 +48,12 @@ export const Orders = () => {
         <Button
           isLoading={isFetching}
           onClick={() => fetchNextPage()}
-          className="flex h-16 items-center justify-center sticky mt-2 bottom-5 w-[95%] mx-auto"
+          className="flex h-16 items-center justify-center  mt-2 bottom-5 w-[95%] mx-auto"
           variant="primary"
         >
           {t("order.load_more")}
         </Button>
       )}
-      <Button
-        className="flex h-16 items-center justify-between sticky mt-2 bottom-5 w-[95%] mx-auto"
-        variant="primary"
-      >
-        <p className="text-lg">{t("order.pay_all")}</p>
-        <p className="text-gray-500">1 080 500 {t("common.currency")}</p>
-      </Button>
     </div>
   );
 };

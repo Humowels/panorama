@@ -1,12 +1,15 @@
 import { TOrderStatuses } from "@/components/orders/order-status/order-status";
+import { FinancialStatus } from "../enums/orders.enum";
 
 export interface IOrder {
   createdAt: string;
   id: number;
-  lineItems: IOrderLineItems;
+  lineItems: IOrderLineItems[];
   number: string;
   status: TOrderStatuses;
   totalPrice: string;
+  note?: string;
+  financialStatus: FinancialStatus;
 }
 
 export interface IOrderLineItems {

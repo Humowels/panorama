@@ -6,3 +6,9 @@ export const ordersQueryFn = async (nextLink?: string) => {
     .then((res) => res.json())
     .then((res) => res);
 };
+
+export const orderQueryFn = async (orderId: string) => {
+  return fetcher(`${getBaseUrl()}/orders/${orderId}`)
+    .then((res) => res.json())
+    .then((res) => res.data);
+};

@@ -9,7 +9,7 @@ export default async function SingleProductPage({ params: { productId } }: IComm
   const queryClient = getQueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ["product", productId],
+    queryKey: ["cafe", "product", productId],
     queryFn: () => getProductByIdQueryFn(productId),
   });
 

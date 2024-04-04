@@ -18,6 +18,13 @@
     "product_added_to_cart": "Mahsulot savatga qo'shildi"
   },
   "order": {
+    "refunded": "Qaytarilgan",
+    "paid": "To'langan",
+    "voided": "Bekor qilingan",
+    "pending": "Kutilmoqda",
+    "payment_status": "To'lov holati",
+    "order_summary": "Buyurtma haqida",
+    "status": "Holati",
     "order": "Buyurtma",
     "order_success": "Sizning buyurtmangiz qabul qilindi!",
     "order_success_msg": "Bosh sahifaga o'tish yoki 'Buyurtmalar va xizmatlar' bo'limiga o'tib, jarayonni kuzatishingiz mumkin",
@@ -36,8 +43,8 @@
     "pay_all": "Hammasini to'lang",
     "order_success_wait_for_waiter": "Buyurtma qabul qilindi!\n Ofitsiantni kutishingiz mumkin\n",
     "go_back_to_menu": "\nMenyuga qaytish",
-    "load_more": "Yana yuklash"
-
+    "load_more": "Yana yuklash",
+    "pay": "To'lash"
   },
   "car_wash": {
     "my_cars": "Mening avtomobillarim",

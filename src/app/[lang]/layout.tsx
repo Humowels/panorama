@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 export interface ICommonProps {
   params: {
     productId: string;
+    orderId: string;
   };
 }
 export default function RootLayout({ children }: { children: React.ReactNode }) {
