@@ -38,8 +38,6 @@ export const OrderPage = ({ orderId }: IProps) => {
   const [carName, carNumber] = carFullNumber.split(" ");
   const hasPaid = order.financialStatus === FinancialStatus.Paid;
 
-  console.log({ status: order.financialStatus });
-
   return (
     <div className="">
       <div className="flex items-center justify-between py-3 px-3 gap-2 border-b">

@@ -2,7 +2,7 @@ import getQueryClient from "@/react-query/get-query-client";
 import { ICommonProps } from "../../layout";
 import { dehydrate } from "@tanstack/react-query";
 import Hydrate from "@/react-query/hydrate-client";
-import { OrderPage } from "../../../../components/order_page/order_page";
+import { OrderPage } from "../../../../components/order-page/order-page";
 import { orderQueryFn } from "@/react-query/queries/orders.query";
 
 export default async function Order({ params: { orderId } }: ICommonProps) {

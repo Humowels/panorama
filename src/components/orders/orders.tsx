@@ -31,7 +31,7 @@ export const Orders = () => {
             key={index}
             status={order.status}
             orderId={order.id}
-            carNumber={{ regionCode: "70", number: "C270QA" }}
+            // carNumber={{ regionCode: "70", number: "C270QA" }}
             price={order.totalPrice}
           />
         );
