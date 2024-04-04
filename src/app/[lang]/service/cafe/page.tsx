@@ -1,4 +1,4 @@
-import { Cafe } from "@/components/cafe/cafe.jsx";
+import { Cafe } from "@/components/cafe/cafe";
 
 export default function CafePage() {
   return (

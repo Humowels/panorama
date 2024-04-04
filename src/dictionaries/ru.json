@@ -35,7 +35,8 @@
     },
     "pay_all": "Оплатить всё",
     "order_success_wait_for_waiter": "Заказ принят!\n Ожидайте официанта\n",
-    "go_back_to_menu": "\nПерейти в меню"
+    "go_back_to_menu": "\nПерейти в меню",
+    "load_more": "Загрузи больше"
   },
   "car_wash": {
     "my_cars": "Мои автомобили",

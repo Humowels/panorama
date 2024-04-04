@@ -5,14 +5,19 @@ import { getAllProductsQueryFn } from "@/react-query/queries/services.query";
 import { Button } from "@/components/ui/button";
 import { Product } from "@/components/cafe/product/product-card";
 import { ProductsLoader } from "@/components/skeletons/products-loader";
+import { IProduct } from "@/lib/interfaces/product.interface";
+import { IInfiniteQueryData } from "@/lib/interfaces/fetch.interface";
 
 export const Cafe = () => {
   const { t, lang } = useLocaleContext();
 
-  const { data, isFetching, isLoading, hasNextPage, fetchNextPage } = useInfiniteQuery({
+  const { data, isFetching, isLoading, hasNextPage, fetchNextPage } = useInfiniteQuery<
+    IInfiniteQueryData<IProduct[]>
+  >({
     queryKey: ["all-products", lang],
-    queryFn: ({ pageParam }) => getAllProductsQueryFn("Товар", pageParam),
+    queryFn: ({ pageParam }) => getAllProductsQueryFn("Товар", pageParam as string),
     getNextPageParam: (lastPage) => lastPage.links.next,
+    initialPageParam: undefined,
   });
 
   const getProducts = isLoading ? (
@@ -42,7 +47,7 @@ export const Cafe = () => {
       {hasNextPage && (
         <Button
           isLoading={isFetching}
-          onClick={fetchNextPage}
+          onClick={() => fetchNextPage()}
           variant="outlined"
           size="lg"
           className="w-full mt-4 rounded-xl capitalize"
