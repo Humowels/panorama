@@ -21,7 +21,7 @@
     "order": "Buyurtma",
     "order_success": "Sizning buyurtmangiz qabul qilindi!",
     "order_success_msg": "Bosh sahifaga o'tish yoki 'Buyurtmalar va xizmatlar' bo'limiga o'tib, jarayonni kuzatishingiz mumkin",
-    "all_services_and_orders": "Barcha xizmatlar va buyurtmalar",
+    "all_services_and_orders": "Barcha buyurtmalar",
     "order_success_layer_message": "-.",
     "close_in_seconds": "{{ second }} sekund ichida avtomatik ravishda yopiladi...",
     "all_orders_combined": "Barcha buyurtmalar birlikda hisobga olingan",
