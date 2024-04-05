@@ -14,7 +14,7 @@ export default function CarWash() {
     queryKey: ["cars"],
   });
 
-  const renderCars = data?.map((car) => {
+  const renderCars = data?.map((car, index) => {
     const [carName, carNumberPlatte] = car.value.split(" ");
 
     const carRegionCode = carNumberPlatte.slice(0, 2);
@@ -22,6 +22,7 @@ export default function CarWash() {
 
     return (
       <CarInlineCard
+        key={index}
         carId={car.value}
         carName={carName}
         carNumber={carNumber}

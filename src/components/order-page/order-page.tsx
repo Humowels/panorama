@@ -69,7 +69,7 @@ export const OrderPage = ({ orderId }: IProps) => {
         <h2 className="font-semibold text-lg mt-4">{t("order.order_summary")}</h2>
 
         {order.lineItems.map((order) => (
-          <div className="w-full bg-white rounded-xl border px-3 py-2 flex items-center justify-between mt-2">
+          <div key={order.id} className="w-full bg-white rounded-xl border px-3 py-2 flex items-center justify-between mt-2">
             <p>{order.title}</p>
             <p>
               {priceFormatter(order.price)} {t("common.currency")}
