@@ -48,7 +48,9 @@
   },
   "car_wash": {
     "my_cars": "Mening avtomobillarim",
-    "choose_car_to_wash": "Moyka haqida ma'lumot"
+    "choose_car_to_wash": "Moyka haqida ma'lumot",
+    "no_cars": "Sizda moshinalar topilmadi",
+    "please_contact": "Kutib turing yoki kassani yonidagi menejer bilan bog'laning"
   },
   "cafe": {
     "available_delivery_and_order": "Yetkazib berish va stulga yetkazib berish mavjud",

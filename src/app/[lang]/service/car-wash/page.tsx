@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getCarsQueryFn } from "@/react-query/queries/cars.query";
 import { ICar } from "@/lib/interfaces/cars.interface";
 import { CarInlineCardSkeleton } from "@/components/skeletons/car-inline-card-skeleton";
+import { CarsEmptyState } from "@/components/car-wash/cars-empty-state/cars-empty-state";
 
 export default function CarWash() {
   const { t } = useLocaleContext();
@@ -13,6 +14,10 @@ export default function CarWash() {
     queryFn: () => getCarsQueryFn(),
     queryKey: ["cars"],
   });
+
+  if (!data?.length) {
+    return <CarsEmptyState />;
+  }
 
   const renderCars = data?.map((car, index) => {
     const [carName, carNumberPlatte] = car.value.split(" ");
