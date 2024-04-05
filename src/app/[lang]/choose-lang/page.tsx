@@ -10,17 +10,17 @@ export default function ChooseLang() {
         <p className={paragraphClass}>Tilni Tanlang</p>
         <p className={paragraphClass}>Выберите язык</p>
         <p className={paragraphClass}>Choose langugae</p>
-        <Link href={`/uz/login`}>
+        <Link href={`/uz/services`}>
           <Button className="w-full mt-24 h-16 font-bold text-xl" variant="default">
             {"O'zbek tili"}
           </Button>
         </Link>
-        <Link href={`/ru/login`}>
+        <Link href={`/ru/services`}>
           <Button className="w-full h-16 mt-2 font-bold text-xl" variant="default">
             Русский язык
           </Button>
         </Link>
-        <Link href={`/en/login`}>
+        <Link href={`/en/services`}>
           <Button className="w-full h-16 mt-2 font-bold text-xl" variant="default">
             English
           </Button>
