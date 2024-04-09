@@ -55,6 +55,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           router.back();
         }
       });
+    } else if (process.env.NODE_ENV === "production" && !!window.Telegram) {
+      router.push("/telegram-not-initialized");
     }
   }, [initialPathname]);
 
