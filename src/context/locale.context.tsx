@@ -47,7 +47,7 @@ export const LocaleContextProvider = ({ children }: React.PropsWithChildren<IPro
   const router = useRouter();
 
   useEffect(() => {
-    if (!!lang) {
+    if (!!lang && window.location.pathname.split("/").length <= 2) {
       router.push(`/${lang}/services`);
     }
   }, [lang]);

@@ -51,7 +51,7 @@ export const SingleProduct = ({ productId }: IProps) => {
       theme: "dark",
       transition: Bounce,
     });
-    addItem(selectedVariant);
+    addItem({ ...selectedVariant, productId: product?.id });
   };
 
   const productsVariants = product.variants.map((variant) => (

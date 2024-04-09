@@ -1,19 +1,20 @@
 import { CheckIcon } from "@heroicons/react/outline";
+import { ElementType, SVGProps } from "react";
 
 interface IProps {
-  icon: string;
+  Icon: ((props: SVGProps<SVGSVGElement>) => JSX.Element);
   advantages: string[];
   serviceName: string;
   isActive: boolean;
   onChange: () => void;
 }
-export const OrderLocations = ({ advantages, icon, serviceName, isActive, onChange }: IProps) => {
+export const OrderLocations = ({ advantages, Icon, serviceName, isActive, onChange }: IProps) => {
   return (
     <div
       onClick={onChange}
-      className="w-full px-3 py-2 flex items-center gap-2 justify-between border-y"
+      className="w-full px-3 py-2 flex items-center gap-2 justify-between border-y cursor-pointer"
     >
-      <img src={icon} alt="icon" />
+      <Icon width={28} />
       <div className="flex flex-col items-start flex-grow">
         <p className="font-medium text-sm">{serviceName}</p>
         <p className="flex items-center gap-2">

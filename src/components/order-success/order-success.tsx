@@ -5,6 +5,7 @@ import { XIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import { useCountdown } from "@/lib/hooks/useCutdown";
 import { useEffect, useRef } from "react";
+import { CheckCircleIcon } from "@heroicons/react/outline";
 
 export const OrderSuccess = () => {
   const { t, lang } = useLocaleContext();
@@ -25,7 +26,7 @@ export const OrderSuccess = () => {
 
   return (
     <>
-      <div className="w-12 h-12 bg-red-500 rounded-full" />
+      <CheckCircleIcon width={64} />
       <p className="mt-4 font-bold">{t("order.order_success")}</p>
       <p className="mt-4 text-center font-semibold">{t("order.order_success_msg")}</p>
       <Link href={`/${lang}/service/car-wash`} className="w-full flex items-center justify-center">

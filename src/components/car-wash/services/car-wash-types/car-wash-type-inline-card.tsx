@@ -16,7 +16,7 @@ export const CarWashTypeInlineCard = ({ price, icon, serviceName, isActive, onCh
       onClick={onChange}
       className="w-full px-3 py-2 flex items-center gap-2 justify-between border-y cursor-pointer"
     >
-      <img src={icon} alt="icon" />
+      {!!icon && <img src={icon} alt="icon" />}
       <div className="flex flex-col items-start flex-grow">
         <p className="font-medium">{serviceName}</p>
         <p>

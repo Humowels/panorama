@@ -7,6 +7,7 @@ import { useLocaleContext } from "@/context/locale.context";
 import { useRouter } from "next/navigation";
 import { useCafeCheckoutContext } from "@/context/cafe-checkout.context";
 import { locationsMock } from "@/lib/mocks/address.mock";
+import { Retryer } from "react-query/types/core/retryer";
 
 export const Checkout = () => {
   const { t, lang } = useLocaleContext();
@@ -24,16 +25,22 @@ export const Checkout = () => {
           <p className="text-center">{t("cafe.where_to_delivery")}</p>
         </div>
         <div className="flex flex-col space-y-3">
-          {locationsMock.map((location, index) => (
-            <OrderLocations
-              serviceName={location.address}
-              key={index}
-              isActive={location.address === selectedAddress.address}
-              icon=""
-              advantages={[]}
-              onChange={setSelectedAddress.bind(null, location)}
-            />
-          ))}
+          {locationsMock.map(({ Icon, ...location }, index) => {
+            if (!Icon) {
+              return null;
+            }
+
+            return (
+              <OrderLocations
+                serviceName={location.address}
+                key={index}
+                isActive={location.address === selectedAddress.address}
+                Icon={Icon}
+                advantages={[]}
+                onChange={setSelectedAddress.bind(null, location)}
+              />
+            );
+          })}
         </div>
       </div>
       <Link

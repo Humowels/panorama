@@ -2,12 +2,14 @@
 import { useLocaleContext } from "@/context/locale.context";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { CheckCircleIcon } from "@heroicons/react/outline";
 
 export default function OrderSuccess() {
   const { t, lang } = useLocaleContext();
   return (
     <div className="flex flex-col items-center justify-center flex-grow">
-      <div className="w-[100px] h-[100px] rounded-md bg-red-500" />
+      <CheckCircleIcon width={64} />
+
       <p className="w-[250px] text-center text-primary font-semibold my-4">
         {t("order.order_success_wait_for_waiter")}
       </p>

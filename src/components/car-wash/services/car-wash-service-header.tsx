@@ -17,11 +17,6 @@ export const CarWashServiceHeader = () => {
       <div className="">
         <CarNumberPlatte size="sm" regionCode="70" number="C270QA" />
       </div>
-
-      <div className=" flex items-center gap-1 justify-end cursor-pointer">
-        <p>{t("common.filter")}</p>
-        <MenuIcon width={18} />
-      </div>
     </div>
   );
 };

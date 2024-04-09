@@ -13,8 +13,4 @@ export const paymentMethodsMock: IPaymentMethod[] = [
     title: "Click",
     icon: "",
   },
-  {
-    title: "Uzum Bank",
-    icon: "",
-  },
 ];

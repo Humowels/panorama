@@ -29,7 +29,7 @@
     "order_success": "Sizning buyurtmangiz qabul qilindi!",
     "order_success_msg": "Bosh sahifaga o'tish yoki 'Buyurtmalar va xizmatlar' bo'limiga o'tib, jarayonni kuzatishingiz mumkin",
     "all_services_and_orders": "Barcha buyurtmalar",
-    "order_success_layer_message": "-.",
+    "order_success_layer_message": "Avtomobil yuvish, kafeda ovqat va soch turmagiga buyurtma berganmisiz? Barcha buyurtmalar bitta hisob-fakturaga birlashtiriladi",
     "close_in_seconds": "{{ second }} sekund ichida avtomatik ravishda yopiladi...",
     "all_orders_combined": "Barcha buyurtmalar birlikda hisobga olingan",
     "edit_order": "Buyurtmani o'zgartirish",

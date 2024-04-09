@@ -1,3 +1,5 @@
+import { ReactNode, SVGProps } from "react";
+
 export interface ICreateOrder {
   shipping_address?: IAddress;
   line_items: ILineItem[];
@@ -23,6 +25,7 @@ export interface IAddress {
   city: string;
   lat: number;
   long: number;
+  Icon?: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 }
 
 export interface IPaymentMethod {
