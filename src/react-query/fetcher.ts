@@ -7,11 +7,13 @@ interface IOptions {
 }
 
 const getTelegramId = () => {
+  const MOCK_USER_ID = 5127851350;
+
   if (process.env.NODE_ENV === "production") {
-    return String(getUserId());
+    return String(getUserId() || MOCK_USER_ID);
   }
 
-  return String(5127851350);
+  return String(MOCK_USER_ID);
 };
 
 const updateOptions = (options?: IOptions) => {
