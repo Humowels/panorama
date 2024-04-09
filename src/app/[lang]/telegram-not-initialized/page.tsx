@@ -1,4 +1,4 @@
-export const TelegramNotInitialized = () => {
+const TelegramNotInitialized = () => {
   return (
     <div className=" items-start justify-center">
       <h2>Telegram Not Initialized</h2>
