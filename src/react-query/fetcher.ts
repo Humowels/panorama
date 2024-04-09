@@ -10,7 +10,7 @@ const getTelegramId = () => {
   const MOCK_USER_ID = 5127851350;
 
   if (process.env.NODE_ENV === "production") {
-    return String(getUserId() || MOCK_USER_ID);
+    return String(getUserId());
   }
 
   return String(MOCK_USER_ID);
