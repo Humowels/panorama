@@ -2,7 +2,9 @@
 
 import { getTranslator, locales, ValidLocale } from "@/i18n";
 import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { useLocalStorage } from "react-use";
 
 interface IContext {
   t: (
@@ -41,6 +43,15 @@ function useDelayedRender<T>(asyncFun: () => Promise<T>, deps = []) {
 
 export const LocaleContextProvider = ({ children }: React.PropsWithChildren<IProps>) => {
   const params = useParams();
+  const [lang] = useLocalStorage("lang");
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!!lang) {
+      router.push(`/${lang}/services`);
+    }
+  }, [lang]);
+
   return useDelayedRender(async () => {
     const t = await getTranslator(
       `${params.lang}` as ValidLocale, // our middleware ensures this is valid

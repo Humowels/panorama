@@ -61,7 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   useEffect(() => {
     if (window.Telegram) {
       const backButton = window.Telegram.WebApp.BackButton;
-      if (pathname === `/${shopName}`) {
+      if (pathname.split("/")[2] === `services`) {
         backButton.hide();
       } else {
         backButton.show();
