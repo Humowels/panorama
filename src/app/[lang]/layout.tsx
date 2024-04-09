@@ -75,6 +75,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en">
+      <head>
+        <script src="https://telegram.org/js/telegram-web-app.js" async />
+      </head>
+
       <body className="bg-gray-50">
         <div className="max-w-sm w-full mx-auto bg-white min-h-screen relative">
           <ReactQueryProvider>
