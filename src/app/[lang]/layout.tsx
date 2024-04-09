@@ -42,6 +42,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     }
   }, []);
 
+  console.log({ telegram: window.Telegram });
+
   useEffect(() => {
     if (window.Telegram && initialPathname) {
       window.Telegram.WebApp.expand();
@@ -55,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           router.back();
         }
       });
-    } else if (process.env.NODE_ENV === "production" && !!window.Telegram) {
+    } else if (process.env.NODE_ENV === "production" && Boolean(window.Telegram)) {
       router.push("/telegram-not-initialized");
     }
   }, [initialPathname]);
