@@ -42,8 +42,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     }
   }, []);
 
-  console.log({ telegram: window.Telegram });
-
   useEffect(() => {
     if (window.Telegram && initialPathname) {
       window.Telegram.WebApp.expand();
@@ -57,11 +55,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           router.back();
         }
       });
-    } 
-  
+    }
+
     // if (process.env.NODE_ENV === "production" && !Boolean(window.Telegram)) {
-      // router.push("/telegram-not-initialized");
- //   }
+    // router.push("/telegram-not-initialized");
+    //   }
   }, [initialPathname]);
 
   useEffect(() => {
@@ -84,7 +82,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-gray-50">
         <div className="max-w-sm w-full mx-auto bg-white min-h-screen relative">
           <ReactQueryProvider>
-            <LocaleContextProvider>{JSON.stringify(window?.Telegram)}{children}</LocaleContextProvider>
+            <LocaleContextProvider>
+              {JSON.stringify(window?.Telegram)}
+              {children}
+            </LocaleContextProvider>
           </ReactQueryProvider>
           <ToastContainer />
         </div>
