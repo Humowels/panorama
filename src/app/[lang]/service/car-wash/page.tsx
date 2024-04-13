@@ -10,14 +10,10 @@ import { CarsEmptyState } from "@/components/car-wash/cars-empty-state/cars-empt
 export default function CarWash() {
   const { t } = useLocaleContext();
 
-  const { data, isLoading } = useQuery<ICar[]>({
+  const { data, isLoading, isFetched } = useQuery<ICar[]>({
     queryFn: () => getCarsQueryFn(),
     queryKey: ["cars"],
   });
-
-  if (!data?.length) {
-    return <CarsEmptyState />;
-  }
 
   const renderCars = data?.map((car, index) => {
     const [carName, carNumberPlatte] = car.value.split(" ");
@@ -36,19 +32,29 @@ export default function CarWash() {
     );
   });
 
+  if (!data?.length && isFetched) {
+    return <CarsEmptyState />;
+  }
+
+  const getCarsContent = () => {
+    if (isLoading) {
+      return (
+        <div>
+          <CarInlineCardSkeleton />
+          <CarInlineCardSkeleton />
+        </div>
+      );
+    }
+
+    return renderCars;
+  };
+
   return (
     <div className="py-8 px-6">
       <h2 className="font-bold text-2xl">{t("car_wash.my_cars")}</h2>
       <p className="mt-3">{t("car_wash.choose_car_to_wash")}</p>
 
-      {isLoading ? (
-        <div>
-          <CarInlineCardSkeleton />
-          <CarInlineCardSkeleton />
-        </div>
-      ) : (
-        renderCars
-      )}
+      {getCarsContent()}
     </div>
   );
 }
