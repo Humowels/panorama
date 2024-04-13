@@ -17,6 +17,7 @@ const getTelegramId = () => {
 };
 
 const updateOptions = (options?: IOptions) => {
+  console.log({ id: getTelegramId() });
   const update = { ...options };
   update.headers = {
     "X-Telegram-Id": getTelegramId(),

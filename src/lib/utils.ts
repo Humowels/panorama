@@ -18,7 +18,9 @@ export function parseNumber(price: string): number {
 }
 
 export const getUserId = (): number => {
-  const chatId = window.chatId;
+  const initData = getTelegramInitData();
+
+  const chatId = initData.user?.id;
 
   if (chatId) {
     return chatId;

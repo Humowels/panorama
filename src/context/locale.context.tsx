@@ -46,14 +46,6 @@ export const LocaleContextProvider = ({ children }: React.PropsWithChildren<IPro
   const params = useParams();
   const [lang] = useLocalStorage("lang");
   const router = useRouter();
-  const initData = getTelegramInitData();
-  const userId = getUserId();
-
-  console.log({ userId: userId, initData, id: userId ?? initData.user?.id, chatId: window.chatId });
-
-  useEffect(() => {
-    window.chatId = initData.user?.id || null;
-  }, []);
 
   useEffect(() => {
     if (!!lang && window.location.pathname.split("/").length <= 2) {
