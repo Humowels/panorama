@@ -52,7 +52,7 @@ export const LocaleContextProvider = ({ children }: React.PropsWithChildren<IPro
   console.log({ userId: userId, initData, id: userId ?? initData.user?.id, chatId: window.chatId });
 
   useEffect(() => {
-    window.chatId = userId ?? initData.user?.id;
+    window.chatId = initData.user?.id || null;
   }, []);
 
   useEffect(() => {
