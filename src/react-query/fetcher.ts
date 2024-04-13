@@ -6,7 +6,7 @@ interface IOptions {
   method: "GET" | "POST" | "PUT" | "DELETE";
 }
 
-const getTelegramId = () => {
+export const getTelegramId = () => {
   const MOCK_USER_ID = 5127851350;
 
   if (process.env.NODE_ENV === "production") {
@@ -17,7 +17,6 @@ const getTelegramId = () => {
 };
 
 const updateOptions = (options?: IOptions) => {
-  console.log({ id: getTelegramId() });
   const update = { ...options };
   update.headers = {
     "X-Telegram-Id": getTelegramId(),

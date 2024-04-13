@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 
 import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
+import { getTelegramId } from "@/react-query/fetcher";
 
 export interface ICommonProps {
   params: {
@@ -57,9 +58,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       });
     }
 
-    // if (process.env.NODE_ENV === "production" && !Boolean(window.Telegram)) {
-    // router.push("/telegram-not-initialized");
-    //   }
+    const telegramId = getTelegramId();
+
+    if (process.env.NODE_ENV === "production" && !Boolean(telegramId)) {
+      router.push("/telegram-not-initialized");
+    }
   }, [initialPathname]);
 
   useEffect(() => {
