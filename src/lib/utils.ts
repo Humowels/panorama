@@ -18,7 +18,7 @@ export function parseNumber(price: string): number {
 }
 
 export const getUserId = (): number => {
-  const chatId = window.Telegram.WebApp.initDataUnsafe.user?.id;
+  const chatId = window.chatId;
 
   if (chatId) {
     return chatId;
@@ -37,4 +37,22 @@ export const getUserId = (): number => {
 
 export const getBaseUrl = () => {
   return `https://panorama.magicstore.uz/api/v1/telegram`;
+};
+
+import { TelegramWebApps } from "@/global";
+
+export const getTelegramInitData = (): TelegramWebApps.WebAppInitData => {
+  const firstLayerInitData = Object.fromEntries(
+    new URLSearchParams(window.Telegram?.WebApp.initData),
+  );
+  const initData: Record<string, string> = {};
+
+  for (const key in firstLayerInitData) {
+    try {
+      initData[key] = JSON.parse(firstLayerInitData[key]);
+    } catch {
+      initData[key] = firstLayerInitData[key];
+    }
+  }
+  return initData as TelegramWebApps.WebAppInitData;
 };

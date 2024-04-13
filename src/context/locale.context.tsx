@@ -1,6 +1,7 @@
 "use client";
 
 import { getTranslator, locales, ValidLocale } from "@/i18n";
+import { getTelegramInitData, getUserId } from "@/lib/utils";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import React, { createContext, useContext, useEffect, useState } from "react";
@@ -45,6 +46,12 @@ export const LocaleContextProvider = ({ children }: React.PropsWithChildren<IPro
   const params = useParams();
   const [lang] = useLocalStorage("lang");
   const router = useRouter();
+  const initData = getTelegramInitData();
+  const userId = getUserId();
+
+  useEffect(() => {
+    window.chatId = userId ?? initData.user?.id;
+  }, []);
 
   useEffect(() => {
     if (!!lang && window.location.pathname.split("/").length <= 2) {
