@@ -85,10 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-gray-50">
         <div className="max-w-sm w-full mx-auto bg-white min-h-screen relative">
           <ReactQueryProvider>
-            <LocaleContextProvider>
-              {JSON.stringify(window?.Telegram)}
-              {children}
-            </LocaleContextProvider>
+            <LocaleContextProvider>{children}</LocaleContextProvider>
           </ReactQueryProvider>
           <ToastContainer />
         </div>
