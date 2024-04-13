@@ -22,7 +22,7 @@ export default function Services() {
         <ServiceCard isService title={`${t("services.cafe")} Ayva`} link="service/cafe" />
 
         <ServiceCard title={t("services.contact")} link="contact" />
-        <ServiceCard title={t("services.about_us")} link="about_us" />
+        <ServiceCard title={t("services.about_us")} link="about-us" />
       </div>
     </div>
   );
